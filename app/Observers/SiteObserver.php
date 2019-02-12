@@ -4,13 +4,14 @@ namespace App\Observers;
 
 use Cache;
 use App\Events\SiteAudit;
+use Baijunyao\LaravelModel\Models\BaseModel as Model;
 
 class SiteObserver extends BaseObserver
 {
-    public function updated($site)
+    public function updated(Model $site)
     {
         // restore() triggering both restored() and updated()
-        if(! $site->isDirty('deleted_at')){
+        if (!$site->isDirty('deleted_at')) {
             if ($site->isDirty('audit') && $site->audit === 1) {
                 event(new SiteAudit($site->id));
             }

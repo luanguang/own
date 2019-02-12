@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use Illuminate\Database\Eloquent\Model;
+use Baijunyao\LaravelModel\Models\BaseModel as Model;
 
 class BaseObserver
 {
@@ -15,7 +15,7 @@ class BaseObserver
     public function updated(Model $model)
     {
         // restore() triggering both restored() and updated()
-        if(! $model->isDirty('deleted_at')){
+        if (!$model->isDirty('deleted_at')) {
             flash_success('修改成功');
         }
         $this->clearCache();
