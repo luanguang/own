@@ -51,7 +51,7 @@
             </div>
         </div>
         <!-- 引入通用评论开始 -->
-        <script>
+        {{-- <script>
             var userEmail='{{ auth()->guard('oauth')->check() ? auth()->guard('oauth')->user()->email : '' }}';
             tuzkiNumber=1;
         </script>
@@ -130,7 +130,7 @@
                 </div>
             @endforeach
             </div>
-        </div>
+        </div> --}}
         <!-- 引入通用评论结束 -->
     </div>
     <!-- 左侧文章结束 -->

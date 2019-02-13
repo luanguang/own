@@ -58,10 +58,10 @@
                         <span><a href="{{ url('auth/oauth/logout') }}">退出</a></span>
                     </li>
                 @else
-                    <li class="b-nav-cname b-nav-login">
+                    {{-- <li class="b-nav-cname b-nav-login">
                         <div class="hidden-xs b-login-mobile"></div>
                         <a class="js-login-btn" href="javascript:;">登录</a>
-                    </li>
+                    </li> --}}
                 @endif
             </ul>
         </div>
@@ -130,7 +130,7 @@
                     @endforeach
                 </p>
             </div>
-            <div class="b-comment-list">
+            {{-- <div class="b-comment-list">
                 <h4 class="b-title">最新评论</h4>
                 <div>
                     @foreach($newComment as $v)
@@ -148,7 +148,7 @@
                         </ul>
                     @endforeach
                 </div>
-            </div>
+            </div> --}}
             <div class="b-link">
                 <h4 class="b-title">友情链接</h4>
                 <p>
