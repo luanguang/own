@@ -481,7 +481,7 @@ class ConfigsTableSeeder extends Seeder
             [
                 'id'         => 117,
                 'name'       => 'bjyblog.icp',
-                'value'      => '豫ICP备14009546号-3',
+                'value'      => '无',
                 'created_at' => '2018-08-22 21:03:01',
                 'updated_at' => '2018-08-22 21:03:01',
                 'deleted_at' => null,
@@ -489,7 +489,7 @@ class ConfigsTableSeeder extends Seeder
             [
                 'id'         => 118,
                 'name'       => 'bjyblog.admin_email',
-                'value'      => 'baijunyao@baijunyao.com',
+                'value'      => '523086505@qq.com',
                 'created_at' => '2018-08-22 21:03:01',
                 'updated_at' => '2018-08-22 21:03:01',
                 'deleted_at' => null,
@@ -641,7 +641,7 @@ class ConfigsTableSeeder extends Seeder
             [
                 'id'         => 151,
                 'name'       => 'bjyblog.qq_qun.number',
-                'value'      => '88199093',
+                'value'      => '523086505',
                 'created_at' => '2018-08-22 21:03:01',
                 'updated_at' => '2018-08-22 21:03:01',
                 'deleted_at' => null,
