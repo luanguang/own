@@ -22,7 +22,7 @@ class ArticlesTableSeeder extends Seeder
                 'keywords'    => 'laravel',
                 'cover'       => '/uploads/article/default.jpg',
                 'is_top'      => 1,
-                'click'       => 666,
+                'click'       => 0,
                 'created_at'  => '2017-7-16 07:35:12',
                 'updated_at'  => '2016-7-16 07:35:12',
                 'deleted_at'  => null,

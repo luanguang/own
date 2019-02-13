@@ -83,7 +83,7 @@
                     <input class="b-search-submit" type="submit" value="全站搜索">
                 </form>
             </div>
-            @if(!empty(config('bjyblog.qq_qun.number')))
+            {{-- @if(!empty(config('bjyblog.qq_qun.number')))
                 <div class="b-qun">
                     <h4 class="b-title">加入组织</h4>
                     <ul class="b-all-tname">
@@ -108,7 +108,7 @@
                         </li>
                     </ul>
                 </div>
-            @endif
+            @endif --}}
             <div class="b-tags">
                 <h4 class="b-title">热门标签</h4>
                 <ul class="b-all-tname">
@@ -168,8 +168,19 @@
 <!-- 通用底部开始 -->
 <footer id="b-foot">
     <div class="container">
-        <div class="row b-content">
-            <dl class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="text-center">
+            <ul>
+                <li>本博客使用免费开源的<a rel="nofollow" href="https://github.com/baijunyao/laravel-bjyblog" target="_blank">laravel-bjyblog</a> {{ config('bjyblog.version') }}-{{ config('bjyblog.branch') }}搭建</li> 
+                <li>联系邮箱：523086505@qq.com</li>
+                <li>感谢作者<a href="https://baijunyao.com">白俊遥</a></li>
+            </ul>
+            <ul>
+                <li style="display:inline;padding:5px">文章总数：{{ $articleCount }}</li>
+                <li style="display:inline;padding:5px">评论总数：{{ $commentCount }}</li>
+                <li style="display:inline;padding:5px">登录用户：{{ $oauthUserCount }}</li>
+                <li style="display:inline">随言碎语：{{ $chatCount }}</li>
+            </ul>
+            {{-- <dl class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <dt>权益</dt>
                 <dd>许可协议：<a rel="nofollow" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh">CC BY-NC 4.0</a></dd>
                 <dd>版权所有：© 2014-{{ date('Y') }} {{ parse_url(config('app.url'))['host'] }}</dd>
@@ -190,13 +201,13 @@
                 <dd>主题作者：<a href="https://baijunyao.com">白俊遥</a></dd>
             </dl>
 
-            <dl class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <dl class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
                 <dt>统计</dt>
                 <dd>文章总数：{{ $articleCount }}</dd>
                 <dd>评论总数：{{ $commentCount }}</dd>
                 <dd>登录用户：{{ $oauthUserCount }}</dd>
                 <dd>随言碎语：{{ $chatCount }}</dd>
-            </dl>
+            </dl> --}}
         </div>
     </div>
     <a class="go-top fa fa-angle-up animated jello" href="javascript:;"></a>
@@ -215,15 +226,16 @@
             </div>
             <div class="col-xs-12 col-md-12 col-lg-12 b-login-row">
                 <ul class="row">
-                    <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                    {{-- <li class="col-xs-6 col-md-4 col-lg-4 b-login-img"> --}}
+                    <li class="text-center">
                         <a href="{{ url('auth/oauth/redirectToProvider/qq') }}"><img src="{{ asset('images/home/qq-login.png') }}" alt="QQ登录" title="QQ登录"></a>
                     </li>
-                    <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                    {{-- <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
                         <a href="{{ url('auth/oauth/redirectToProvider/weibo') }}"><img src="{{ asset('images/home/sina-login.png') }}" alt="微博登录" title="微博登录"></a>
                     </li>
                     <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
                         <a href="{{ url('auth/oauth/redirectToProvider/github') }}"><img src="{{ asset('images/home/github-login.jpg') }}" alt="github登录" title="github登录"></a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>

@@ -13,7 +13,6 @@ use App\Models\Nav;
 use App\Models\OauthUser;
 use App\Models\Tag;
 use Cache;
-use App\Observers\CacheClearObserver;
 use Illuminate\Support\ServiceProvider;
 use Exception;
 
@@ -27,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        ini_set('memory_limit', "512M");
+        ini_set('memory_limit', '512M');
 
         // 为了防止 git clone 后 composer install
         // 因为还没运行迁移 php artisan package:discover 报错的问题
@@ -35,12 +34,11 @@ class AppServiceProvider extends ServiceProvider
         try {
             // 获取配置项
             $config = Cache::remember('config', 10080, function () {
-                return Config::where('id', '>', 100)->pluck('value','name');
+                return Config::where('id', '>', 100)->pluck('value', 'name');
             });
         } catch (Exception $exception) {
             return true;
         }
-
         /**
          * 如果已经执行了 migrate ；
          * 当再当执行 db:seed 的时候上面的 try 并不会触发错误
@@ -56,7 +54,7 @@ class AppServiceProvider extends ServiceProvider
         config($config->toArray());
 
         // 开源项目数据
-        view()->composer(['layouts/home', 'home/index/git'], function($view){
+        view()->composer(['layouts/home', 'home/index/git'], function ($view) {
             $gitProject = Cache::remember('common:gitProject', 10080, function () {
                 // 获取开源项目
                 return GitProject::select('name', 'type')->orderBy('sort')->get();
@@ -67,7 +65,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         // 获取各种统计
-        view()->composer(['layouts/home', 'admin/index/index'], function($view){
+        view()->composer(['layouts/home', 'admin/index/index'], function ($view) {
             $articleCount = Cache::remember('count:article', 10080, function () {
                 // 统计文章总数
                 return Article::count('id');
@@ -94,7 +92,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         //分配前台通用的数据
-        view()->composer('layouts/home', function($view){
+        view()->composer('layouts/home', function ($view) {
             $category = Cache::remember('common:category', 10080, function () {
                 // 获取分类导航
                 return Category::select('id', 'name')->orderBy('sort')->get();
@@ -138,7 +136,7 @@ class AppServiceProvider extends ServiceProvider
             if (empty($qunArticleId)) {
                 $qqQunArticle = [];
             } else {
-                $qqQunArticle = Cache::remember('qqQunArticle', 10080, function () use($qunArticleId) {
+                $qqQunArticle = Cache::remember('qqQunArticle', 10080, function () use ($qunArticleId) {
                     return Article::select('id', 'title')->where('id', $qunArticleId)->first();
                 });
             }
