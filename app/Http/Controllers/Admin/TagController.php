@@ -6,7 +6,6 @@ use App\Http\Requests\Tag\Store;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Cache;
 
 class TagController extends Controller
 {
@@ -40,9 +39,9 @@ class TagController extends Controller
      */
     public function store(Store $request)
     {
-        $id = Tag::create($request->only('name'));
+        $data = Tag::create($request->only('name'));
         if ($request->ajax()) {
-            $data['id'] = $id;
+            // $data['id'] = $id;
             return ajax_return(200, $data);
         }
         return redirect('admin/tag/index');
